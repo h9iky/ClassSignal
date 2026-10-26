@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ClassSignal помогает организовать учебные темы для BIL Turkistan."
+    />
+    <meta name="theme-color" content="#f5f6f3" />
+    <title>ClassSignal — учебное пространство</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Основная навигация">
+        <a class="brand" href="#overview" aria-label="ClassSignal — на главную">
+          <span class="brand-mark" aria-hidden="true">cs</span>
+          <span class="brand-copy">
+            <strong>ClassSignal</strong>
+            <small>BIL Turkistan</small>
+          </span>
+        </a>
+
+        <div class="nav-caption">ПРОСТРАНСТВО</div>
+        <nav class="side-nav">
+          <a class="nav-link is-active" href="#overview">
+            <span class="nav-icon" aria-hidden="true">⌂</span>Обзор
+          </a>
+          <a class="nav-link" href="#topics">
+            <span class="nav-icon nav-icon-grid" aria-hidden="true">▦</span>Темы
+          </a>
+          <a class="nav-link" href="#study-plan">
+            <span class="nav-icon" aria-hidden="true">▤</span>Учебный план
+          </a>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-note">
+          <span class="sidebar-note-mark" aria-hidden="true">✳</span>
+          <p><strong>Учиться понятнее</strong><br />Один шаг за раз.</p>
+        </div>
+        <div class="sidebar-school">
+          <span class="school-avatar" aria-hidden="true">B</span>
+          <span><strong>BIL Turkistan</strong><small>Учебный портал</small></span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar" id="overview">
+          <div class="page-heading">
+            <p class="eyebrow">BIL TURKISTAN <span aria-hidden="true">/</span> УЧЕБНОЕ ПРОСТРАНСТВО</p>
+            <h1>Хороший день для новых знаний<span class="heading-period">.</span></h1>
+            <p class="page-subtitle">Собираем учебные темы в одном понятном месте.</p>
+          </div>
+          <div class="topbar-actions">
+            <div class="connection-status" id="connection-status" role="status" aria-live="polite">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="connection-label">Проверяем связь</span>
+            </div>
+            <button class="button button-primary top-create-button" id="add-topic-top" type="button">
+              <span aria-hidden="true">＋</span> Новая тема
+            </button>
+          </div>
+        </header>
+
+        <section class="prototype-alert" aria-label="Предупреждение о прототипе">
+          <span class="alert-icon" aria-hidden="true">!</span>
+          <p><strong>Режим прототипа.</strong> Входа и разграничения прав пока нет; статусы тем не скрывают данные. Не добавляйте реальные данные учеников и не публикуйте сайт в интернете.</p>
+        </section>
+
+        <section class="welcome-card" aria-labelledby="welcome-title">
+          <div class="welcome-copy">
+            <span class="welcome-kicker"><span class="kicker-line"></span> ЗНАНИЯ РАСТУТ ВМЕСТЕ</span>
+            <h2 id="welcome-title">Понятные темы.<br /><span>Уверенность в учёбе.</span></h2>
+            <p>Организуйте материалы по предметам и четвертям — чтобы нужная тема всегда была под рукой.</p>
+            <button class="button button-light" id="add-topic-hero" type="button">
+              Создать первую тему <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-card art-card-back"><span>√</span><i></i><i></i></div>
+            <div class="art-card art-card-front"><span class="art-sun">✳</span><b></b><i></i><i></i><i></i></div>
+            <span class="art-spark spark-one">✦</span>
+            <span class="art-spark spark-two">✳</span>
+          </div>
+          <span class="welcome-index" aria-hidden="true">01 — LEARN</span>
+        </section>
+
+        <section class="stats-grid" aria-label="Учебное пространство в цифрах">
+          <article class="stat-card stat-card-primary">
+            <div class="stat-card-top"><span>Все темы</span><span class="stat-icon" aria-hidden="true">▦</span></div>
+            <strong class="stat-value" id="stat-topics">—</strong>
+            <span class="stat-caption">в учебном пространстве</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-card-top"><span>Опубликовано</span><span class="stat-icon stat-icon-green" aria-hidden="true">↗</span></div>
+            <strong class="stat-value" id="stat-published">—</strong>
+            <span class="stat-caption">имеют метку «Опубликовано»</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-card-top"><span>Предметы</span><span class="stat-icon stat-icon-blue" aria-hidden="true">◈</span></div>
+            <strong class="stat-value" id="stat-subjects">—</strong>
+            <span class="stat-caption">в учебном плане</span>
+          </article>
+          <article class="stat-card">
+            <div class="stat-card-top"><span>Четверти</span><span class="stat-icon stat-icon-orange" aria-hidden="true">◷</span></div>
+            <strong class="stat-value" id="stat-quarters">—</strong>
+            <span class="stat-caption">добавлено в систему</span>
+          </article>
+        </section>
+
+        <section class="section-card topics-section" id="topics" aria-labelledby="topics-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-overline">ВАШИ МАТЕРИАЛЫ</p>
+              <h2 id="topics-title">Темы курса</h2>
+              <p class="section-description">Выберите предмет или четверть, чтобы найти нужное.</p>
+            </div>
+            <button class="button button-secondary refresh-button" id="refresh-button" type="button" aria-label="Обновить учебные данные">
+              <span aria-hidden="true">↻</span><span class="refresh-label">Обновить</span>
+            </button>
+          </div>
+
+          <div class="filters-row" aria-label="Фильтры тем">
+            <label class="search-field">
+              <span class="sr-only">Поиск по темам</span>
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <input id="topic-search" type="search" placeholder="Найти тему..." autocomplete="off" />
+            </label>
+            <label class="filter-field">
+              <span class="sr-only">Фильтр по предмету</span>
+              <select id="subject-filter"><option value="">Все предметы</option></select>
+            </label>
+            <label class="filter-field">
+              <span class="sr-only">Фильтр по четверти</span>
+              <select id="quarter-filter"><option value="">Все четверти</option></select>
+            </label>
+            <label class="filter-field status-filter">
+              <span class="sr-only">Фильтр по статусу</span>
+              <select id="status-filter">
+                <option value="">Любой статус</option>
+                <option value="published">Опубликованные</option>
+                <option value="draft">Черновики</option>
+                <option value="archived">В архиве</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="topic-grid" id="topic-list" aria-live="polite" aria-busy="true"></div>
+        </section>
+
+        <section class="study-plan-section" id="study-plan" aria-labelledby="study-plan-title">
+          <div class="section-heading plan-heading">
+            <div>
+              <p class="section-overline">ОСНОВА ОБУЧЕНИЯ</p>
+              <h2 id="study-plan-title">Учебный план</h2>
+              <p class="section-description">Предметы и четверти, к которым привязаны темы.</p>
+            </div>
+          </div>
+          <div class="reference-grid">
+            <article class="reference-card">
+              <div class="reference-heading">
+                <span class="reference-icon reference-icon-blue" aria-hidden="true">◈</span>
+                <div><h3>Предметы</h3><p id="subject-count-label">Загружаем список...</p></div>
+                <button class="icon-button" id="add-subject-button" type="button" aria-label="Добавить предмет" title="Добавить предмет">＋</button>
+              </div>
+              <ul class="reference-list" id="subject-list" aria-label="Список предметов"></ul>
+            </article>
+            <article class="reference-card">
+              <div class="reference-heading">
+                <span class="reference-icon reference-icon-orange" aria-hidden="true">◷</span>
+                <div><h3>Четверти</h3><p id="quarter-count-label">Загружаем список...</p></div>
+                <button class="icon-button" id="add-quarter-button" type="button" aria-label="Добавить четверть" title="Добавить четверть">＋</button>
+              </div>
+              <ul class="reference-list" id="quarter-list" aria-label="Список четвертей"></ul>
+            </article>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <span>ClassSignal <span aria-hidden="true">·</span> BIL Turkistan</span>
+          <span>Создано для понятного обучения</span>
+        </footer>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <dialog class="form-dialog" id="subject-dialog" aria-labelledby="subject-dialog-title">
+      <form id="subject-form">
+        <div class="dialog-heading">
+          <div><p class="section-overline">УЧЕБНЫЙ ПЛАН</p><h2 id="subject-dialog-title">Новый предмет</h2></div>
+          <button class="dialog-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+        </div>
+        <label class="form-field">Название предмета<input name="name" required maxlength="100" placeholder="Например, Математика" /></label>
+        <label class="form-field">Краткое описание <span class="optional-label">необязательно</span><textarea name="description" rows="3" placeholder="О чём этот предмет?"></textarea></label>
+        <p class="form-error" id="subject-form-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button class="button button-secondary" type="button" data-close-dialog>Отмена</button><button class="button button-primary" type="submit">Сохранить предмет</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="form-dialog" id="quarter-dialog" aria-labelledby="quarter-dialog-title">
+      <form id="quarter-form">
+        <div class="dialog-heading">
+          <div><p class="section-overline">УЧЕБНЫЙ ПЛАН</p><h2 id="quarter-dialog-title">Новая четверть</h2></div>
+          <button class="dialog-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+        </div>
+        <label class="form-field">Учебный год<input name="school_year" required maxlength="20" placeholder="2025-2026" /></label>
+        <label class="form-field">Номер четверти<select name="number" required><option value="1">1-я четверть</option><option value="2">2-я четверть</option><option value="3">3-я четверть</option><option value="4">4-я четверть</option></select></label>
+        <div class="date-fields">
+          <label class="form-field">Начало <span class="optional-label">необязательно</span><input name="starts_at" type="date" /></label>
+          <label class="form-field">Окончание <span class="optional-label">необязательно</span><input name="ends_at" type="date" /></label>
+        </div>
+        <p class="form-error" id="quarter-form-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button class="button button-secondary" type="button" data-close-dialog>Отмена</button><button class="button button-primary" type="submit">Сохранить четверть</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="form-dialog" id="topic-dialog" aria-labelledby="topic-dialog-title">
+      <form id="topic-form">
+        <div class="dialog-heading">
+          <div><p class="section-overline">УЧЕБНЫЕ МАТЕРИАЛЫ</p><h2 id="topic-dialog-title">Новая тема</h2></div>
+          <button class="dialog-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+        </div>
+        <label class="form-field">Название темы<input name="title" required maxlength="200" placeholder="Например, Линейные уравнения" /></label>
+        <div class="date-fields">
+          <label class="form-field">Предмет<select name="subject_id" required></select></label>
+          <label class="form-field">Четверть<select name="quarter_id" required></select></label>
+        </div>
+        <label class="form-field">Описание <span class="optional-label">необязательно</span><textarea name="description" rows="4" placeholder="Кратко опишите, что изучат ученики"></textarea></label>
+        <label class="form-field">Статус<select name="status"><option value="draft">Черновик</option><option value="published">Опубликована</option><option value="archived">В архиве</option></select></label>
+        <p class="form-hint" id="topic-form-hint">Статус — только метка: черновики и архив пока тоже доступны посетителям.</p>
+        <p class="form-error" id="topic-form-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button class="button button-secondary" type="button" data-close-dialog>Отмена</button><button class="button button-primary" id="topic-submit-button" type="submit">Создать тему</button></div>
+      </form>
+    </dialog>
+  </body>
+</html>

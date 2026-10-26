@@ -1,0 +1,1 @@
+"""ClassSignal application package."""
